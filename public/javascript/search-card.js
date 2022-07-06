@@ -1,3 +1,5 @@
+
+
 async function searchBtnHandler(event){
     event.preventDefault();
   
@@ -16,7 +18,7 @@ async function searchBtnHandler(event){
           console.log(searchData.data[i].image_uris.normal);
           console.log(searchData.data[i].prices.usd);
         }
-      })
+      });
     }
     else{
       alert(response.statusText);

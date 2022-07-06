@@ -10,7 +10,7 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 Post.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 });
 
 // User.belongsToMany(Post, {
@@ -28,7 +28,6 @@ Post.belongsTo(User, {
 
 User.hasMany(Inventory, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
 });
 Inventory.belongsTo(User, {
     foreignKey: 'user_id'
@@ -36,10 +35,11 @@ Inventory.belongsTo(User, {
 
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 });
 Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
 });
 User.hasMany(Comment, {
     foreignKey: 'user_id'
