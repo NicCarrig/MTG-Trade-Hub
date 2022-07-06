@@ -1,4 +1,4 @@
-<article class="post">
+{{!-- <article class="card">
   <div class="title">
     <a href="{{post_url}}" target="_blank">{{title}}</a>
     <span>({{format_url post_url}})</span>
@@ -8,4 +8,8 @@
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
+</article> --}}
+
+<article class="card">
+  <div>{{id}} {{card_name}} {{created_at}}</div>
 </article>
