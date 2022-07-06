@@ -5,8 +5,6 @@ const withAuth = require('../../utils/auth');
 
 
 
-
-
 router.get('/:id', (req, res) => {
     Inventory.findAll({
       where: {
@@ -15,17 +13,10 @@ router.get('/:id', (req, res) => {
       attributes: [
         'id',
         'user_id',
-        'card_name'
+        'card_name',
+        'img_uri'
       ],
       include: [
-        // {
-        //   model: Comment,
-        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        //   include: {
-        //     model: User,
-        //     attributes: ['username']
-        //   }
-        // },
         {
           model: User,
           attributes: ['username']
@@ -45,7 +36,19 @@ router.get('/:id', (req, res) => {
       });
   });
   
-
+  router.post('/', withAuth, (req, res) => {
+    Inventory.create({
+      card_name: req.body.title,
+      img_uri: req.body.img_uri,
+      user_id: req.session.user_id
+    })
+      .then(dbPostData => res.json(dbPostData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+  
 
 
 

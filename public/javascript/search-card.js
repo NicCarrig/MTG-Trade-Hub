@@ -1,5 +1,4 @@
 
-
 async function searchBtnHandler(event){
     event.preventDefault();
   

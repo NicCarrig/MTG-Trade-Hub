@@ -14,13 +14,17 @@
 
 {{#if cards.length}}
 <section>
-  <h2>Your Inventory</h2>
-  <ol>
+  <h2>{{user.username}}'s Inventory</h2>
+  <div class="container">
+    <div class="row">
     {{#each cards as |card|}}
-    <li>
-      {{id}} {{card_name}}
-    </li>
+    <div class="col-3">
+      <img src="{{img_uri}}" alt="image of {{card_name}}">
+      {{card_name}}
+    </div>
     {{/each}}
-  </ol>
+    </div>
+  </div>
+  
 </section>
 {{/if}}

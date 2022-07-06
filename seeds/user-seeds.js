@@ -8,48 +8,48 @@ const userdata = [
     password: '12345'
   },
   {
-    username: 'jwilloughway1',
-    email: 'rmebes1@sogou.com',
+    username: 'user2',
+    email: 'user2@email.com',
     password: 'password123'
   },
   {
-    username: 'iboddam2',
-    email: 'cstoneman2@last.fm',
+    username: 'user3',
+    email: 'user3@email.com',
     password: 'password123'
   },
   {
-    username: 'dstanmer3',
-    email: 'ihellier3@goo.ne.jp',
+    username: 'user4',
+    email: 'user4@email.com',
     password: 'password123'
   },
   {
-    username: 'djiri4',
-    email: 'gmidgley4@weather.com',
+    username: 'user5',
+    email: 'user5@email.com',
     password: 'password123'
   },
   {
-    username: 'msprague5',
-    email: 'larnout5@imdb.com',
+    username: 'user6',
+    email: 'user6@email.com',
     password: 'password123'
   },
   {
-    username: 'mpergens6',
-    email: 'hnapleton6@feedburner.com',
+    username: 'user7',
+    email: 'user7@email.com',
     password: 'password123'
   },
   {
-    username: 'tpenniell7',
-    email: 'kperigo7@china.com.cn',
+    username: 'user8',
+    email: 'user8@email.com',
     password: 'password123'
   },
   {
-    username: 'msabbins8',
-    email: 'lmongain8@google.ru',
+    username: 'user9',
+    email: 'user9@email.com',
     password: 'password123'
   },
   {
-    username: 'jmacarthur9',
-    email: 'bsteen9@epa.gov',
+    username: 'user10',
+    email: 'user10@email.com',
     password: 'password123'
   }
 ];

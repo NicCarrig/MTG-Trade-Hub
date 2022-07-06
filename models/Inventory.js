@@ -27,6 +27,10 @@ Inventory.init(
       scryfall_id: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      img_uri: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
     {
