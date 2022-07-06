@@ -1,26 +1,31 @@
-// const { Vote } = require('../models');
+const { Inventory } = require('../models');
 
-// const votedata = [
-//   {
-//     user_id: 9,
-//     post_id: 19
-//   },
-//   {
-//     user_id: 1,
-//     post_id: 8
-//   },
-//   {
-//     user_id: 8,
-//     post_id: 12
-//   },
-//   {
-//     user_id: 8,
-//     post_id: 19
-//   },
-//   {
-//     user_id: 9,
-//     post_id: 3
-//   },
+const invdata = [
+  {
+    user_id: 1,
+    card_name: 'Horde of Notions',
+    scryfall_id: 'a5137c28-632f-40f4-bf9d-877f5f070987'
+  },
+  {
+    user_id: 1,
+    card_name: 'Notion Thief',
+    scryfall_id: 'f675f509-4343-4568-96dd-265626cb6c2b'
+  },  
+  {
+    user_id: 1,
+    card_name: 'Arc Lightning',
+    scryfall_id: '35c7c392-6782-40c8-bb24-6aad24f14660'
+  },  
+  {
+    user_id: 1,
+    card_name: 'Ball Lightning',
+    scryfall_id: 'd9b53218-804b-4992-9c93-a797dd6b2a04'
+  },  
+  {
+    user_id: 2,
+    card_name: 'Boltwing Marauder',
+    scryfall_id: 'aab8841f-5c6f-47fc-91c9-acf3c84b7313'
+  }, ]
 //   {
 //     user_id: 3,
 //     post_id: 16
@@ -191,6 +196,6 @@
 //   }
 // ];
 
-// const seedVotes = () => Vote.bulkCreate(votedata);
+const seedInv = () => Inventory.bulkCreate(invdata);
 
-// module.exports = seedVotes;
+module.exports = seedInv;

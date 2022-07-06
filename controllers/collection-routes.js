@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, Inventory } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+// get all cards for currently logged in user
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
@@ -15,7 +15,6 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'user_id',
         'card_name',
-        'created_at',
       ],
       include: [
         // {
@@ -34,7 +33,7 @@ router.get('/', withAuth, (req, res) => {
     })
       .then(dbPostData => {
         const cards = dbPostData.map(cards => cards.get({ plain: true }));
-        res.render('inventory', { cards, loggedIn: true });
+        res.render('collection', { cards, loggedIn: true });
       })
       .catch(err => {
         console.log(err);
