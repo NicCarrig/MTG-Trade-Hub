@@ -37,10 +37,12 @@ router.get('/:id', (req, res) => {
   });
   
   router.post('/', withAuth, (req, res) => {
+    console.log(req);
     Inventory.create({
-      card_name: req.body.title,
+      card_name: req.body.card_name,
       img_uri: req.body.img_uri,
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
+      scryfall_id: req.body.scryfall_id
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {

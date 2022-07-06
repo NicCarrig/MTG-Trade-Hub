@@ -5,13 +5,13 @@ const invdata = [
     user_id: 1,
     card_name: 'Horde of Notions',
     scryfall_id: 'a5137c28-632f-40f4-bf9d-877f5f070987',
-    img_uri: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/a/5/a5137c28-632f-40f4-bf9d-877f5f070987.jpg?1562265721'
+    img_uri: 'https://c1.scryfall.com/file/scryfall-cards/small/front/a/5/a5137c28-632f-40f4-bf9d-877f5f070987.jpg?1562265721'
   },
   {
     user_id: 1,
     card_name: 'Notion Thief',
     scryfall_id: 'f675f509-4343-4568-96dd-265626cb6c2b',
-    img_uri: 'https://c1.scryfall.com/file/scryfall-cards/normal/front/f/6/f675f509-4343-4568-96dd-265626cb6c2b.jpg?1604195095'
+    img_uri: 'https://c1.scryfall.com/file/scryfall-cards/small/front/f/6/f675f509-4343-4568-96dd-265626cb6c2b.jpg?1604195095'
   },  
   {
     user_id: 1,

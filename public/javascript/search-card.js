@@ -12,12 +12,35 @@ async function searchBtnHandler(event){
     if(response.ok){
       response.json().then(searchData =>{
         // console.log(searchData);
-        for(let i = 0; i < searchData.data.length; i++){
-          console.log(searchData.data[i].name);
-          console.log(searchData.data[i].image_uris.normal);
-          console.log(searchData.data[i].prices.usd);
-        }
-      });
+        // for(let i = 0; i < searchData.data.length; i++){
+        //   console.log(searchData.data[i].name);
+        //   console.log(searchData.data[i].image_uris.small);
+        //   console.log(searchData.data[i].prices.usd);
+        // }
+        //currently only getting first response
+        let card_name = searchData.data[0].name;
+        let img_uri = searchData.data[0].image_uris.small;
+        let scryfall_id = searchData.data[0].id;
+        
+        const addCard = fetch('/api/inventory', {
+          method: 'POST',
+          body: JSON.stringify({
+            card_name,
+            img_uri,
+            scryfall_id
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        if (addCard.ok) {
+          document.location.replace('/collection');
+      } else {
+        alert(response.statusText);
+      }
+      
+    })
     }
     else{
       alert(response.statusText);
