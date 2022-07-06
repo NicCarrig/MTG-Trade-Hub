@@ -53,7 +53,6 @@ User.init(
         }
     },
     {
-        //TABLE CONFIGUREATIONS OPTIONS GO HERE
         hooks: {
             //set up beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData){

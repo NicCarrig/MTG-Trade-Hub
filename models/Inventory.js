@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vote extends Model {}
+class Inventory extends Model {}
 
 
 
-Vote.init(
+Inventory.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -20,13 +20,17 @@ Vote.init(
           key: 'id'
         }
       },
-      post_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'post',
-          key: 'id'
-        }
+      card_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      scryfall_id: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      img_uri: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
     {
@@ -34,7 +38,7 @@ Vote.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'vote'
+      modelName: 'inventory'
     }
   );
 
@@ -43,4 +47,4 @@ Vote.init(
 
 
 
-  module.exports = Vote;
+  module.exports = Inventory;
