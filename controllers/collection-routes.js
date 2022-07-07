@@ -36,12 +36,12 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-router.get('/:id', (req, res) => {
-  // console.log(req.session);
+router.get('/user/:id', (req, res) => {
+  console.log(req.params);
   console.log('======================');
   Inventory.findAll({
     where: {
-      user_id: req.params.user_id
+      user_id: req.params.id
     },
     attributes: [
       'id',
@@ -59,7 +59,7 @@ router.get('/:id', (req, res) => {
     .then(dbPostData => {
       const cards = dbPostData.map(cards => cards.get({ plain: true }));
       console.log(cards);
-      res.render('collection', { cards });
+      res.render(`user-inventory`, { cards });
     })
     .catch(err => {
       console.log(err);
