@@ -19,7 +19,7 @@ async function searchBtnHandler(event){
         // }
         //currently only getting first response
         let card_name = searchData.data[0].name;
-        let img_uri = searchData.data[0].image_uris.small;
+        let img_uri = searchData.data[0].image_uris.normal;
         let scryfall_id = searchData.data[0].id;
         
         const addCard = fetch('/api/inventory', {
@@ -32,17 +32,21 @@ async function searchBtnHandler(event){
           headers: {
             'Content-Type': 'application/json'
           }
-        });
-        
-        if (addCard.ok) {
-          document.location.replace('/collection');
-      } else {
-        alert(response.statusText);
-      }
-      
-    })
+        }).then( cardInfo => {
+          console.log(cardInfo);
+          if (cardInfo.ok) {
+            // console.log('cardInfo ok');
+            document.location.replace('/collection');
+          } 
+          else {
+            // console.log('cardInfo not ok');
+            alert(cardInfo.statusText);
+          }   
+        })
+      })
     }
     else{
+      console.log('response not ok');
       alert(response.statusText);
     }
 }

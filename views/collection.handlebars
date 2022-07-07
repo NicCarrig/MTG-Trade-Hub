@@ -15,15 +15,14 @@
 {{#if cards.length}}
 <section>
   <h2>{{user.username}}'s Inventory</h2>
-  <div class="container">
-    <div class="row">
+  <div class="card-wrapper">
     {{#each cards as |card|}}
-    <div class="col-3">
+    <div class="card-container">
       <img src="{{img_uri}}" alt="image of {{card_name}}">
+      <button type="button" class="remove-card-btn">Remove card</button>
       {{card_name}}
     </div>
     {{/each}}
-    </div>
   </div>
   
 </section>
