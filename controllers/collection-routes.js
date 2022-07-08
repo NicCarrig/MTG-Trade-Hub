@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 // get all cards for currently logged in user
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
+    // console.log(req.session);
     console.log('======================');
     Inventory.findAll({
       where: {
@@ -26,7 +26,7 @@ router.get('/', withAuth, (req, res) => {
     })
       .then(dbPostData => {
         const cards = dbPostData.map(cards => cards.get({ plain: true }));
-        console.log(cards);
+        // console.log(cards);
         res.render('collection', { cards, loggedIn: true });
       })
       .catch(err => {
@@ -37,7 +37,7 @@ router.get('/', withAuth, (req, res) => {
 
 
 router.get('/user/:id', (req, res) => {
-  console.log(req.params);
+  // console.log(req.params);
   console.log('======================');
   Inventory.findAll({
     where: {
@@ -58,8 +58,13 @@ router.get('/user/:id', (req, res) => {
   })
     .then(dbPostData => {
       const cards = dbPostData.map(cards => cards.get({ plain: true }));
-      console.log(cards);
-      res.render(`user-inventory`, { cards });
+      // console.log(cards);
+      if(req.session.user_id){
+        res.render(`user-inventory`, { cards, loggedIn: true });
+      }
+      else{
+        res.render(`user-inventory`, { cards });
+      }
     })
     .catch(err => {
       console.log(err);

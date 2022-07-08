@@ -49,28 +49,28 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
   
 
-  router.delete('/:id', withAuth, (req, res) => {
-    console.log('id', req.params.id);
-    Inventory.destroy({
-      where: {
-        id: req.params.id
+router.delete('/:id', withAuth, (req, res) => {
+  console.log('id', req.params.id);
+  Inventory.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbInvData => {
+      if (!dbInvData) {
+        res.status(404).json({ message: 'No card found with this id' });
+        return;
       }
+      res.json(dbInvData);
     })
-      .then(dbInvData => {
-        if (!dbInvData) {
-          res.status(404).json({ message: 'No card found with this id' });
-          return;
-        }
-        res.json(dbInvData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 

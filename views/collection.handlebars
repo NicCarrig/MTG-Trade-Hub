@@ -13,13 +13,13 @@
 {{/if}} --}}
 
 {{#if cards.length}}
-<section>
+<section class="user-collection">
   <h2>{{cards.0.user.username}}'s Inventory</h2>
   <div class="card-wrapper">
     {{#each cards as |card|}}
     <div class="card-container">
       <img src="{{img_uri}}" alt="image of {{card_name}}">
-      <button type="button" class="remove-card-btn">Remove card</button>
+      <button type="button" class="remove-card-btn" data-id="{{id}}">Remove card</button>
       {{card_name}}
     </div>
     {{/each}}
@@ -27,3 +27,9 @@
   
 </section>
 {{/if}}
+
+
+
+
+{{!-- <script src="/javascript/search-card.js"></script> --}}
+<script src="/javascript/remove-card.js"></script>
