@@ -8,16 +8,8 @@
   </form>
 </section>
 
-{{#if cardArr.length}}
-<div class="card-search-container">
-    <ul>
-      <li>butts</li>
-      {{#each cardArr}}
-      <li>{{cardArr.name}}</li>
-      {{/each}}
-    </ul>
-</div>
-{{/if}}
+<div class="card-search-container" id="card-search-container"></div>
+
 
 {{#if cards.length}}
 <section class="user-collection">
@@ -25,9 +17,9 @@
   <div class="card-wrapper">
     {{#each cards as |card|}}
     <div class="card-container">
-      <img src="{{img_uri}}" alt="image of {{card_name}}">
+      <img src="{{img_uri}}" alt="image of {{card_name}}" data-id="{{id}}">
+      <p data-id="{{id}}">{{card_name}}</p>
       <button type="button" class="remove-card-btn" data-id="{{id}}">Remove card</button>
-      {{card_name}}
     </div>
     {{/each}}
   </div> 
