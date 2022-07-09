@@ -13,19 +13,6 @@ Post.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-// User.belongsToMany(Post, {
-//     through: Vote,
-//     as: 'voted_posts',
-//     foreignKey: 'user_id'
-// });
-
-// Post.belongsToMany(User, {
-//     through: Vote,
-//     as: 'voted_posts',
-//     foreignKey: 'post_id'
-// });
-
-
 User.hasMany(Inventory, {
     foreignKey: 'user_id',
 });

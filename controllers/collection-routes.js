@@ -36,49 +36,12 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-// router.get('/user/:id', (req, res) => {
-//   // console.log(req.params);
-//   console.log('======================');
-//   Inventory.findAll({
-//     where: {
-//       user_id: req.params.id
-//     },
-//     attributes: [
-//       'id',
-//       'user_id',
-//       'card_name',
-//       'img_uri'
-//     ],
-//     include: [
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]
-//   })
-//     .then(dbPostData => {
-//       const cards = dbPostData.map(cards => cards.get({ plain: true }));
-//       // console.log(cards);
-//       if(req.session.user_id){
-//         console.log(res);
-//         res.render(`user-inventory`, { cards, loggedIn: true });
-//       }
-//       else{
-//         res.render(`user-inventory`, { cards });
-//       }
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
-router.get('/user/:username', (req, res) => {
+router.get('/user/:id', (req, res) => {
   // console.log(req.params);
   console.log('======================');
   Inventory.findAll({
     where: {
-      User.username: req.params.username
+      user_id: req.params.id
     },
     attributes: [
       'id',
@@ -109,6 +72,46 @@ router.get('/user/:username', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+
+
+// router.get('/user/:username', (req, res) => {
+//   // console.log(req.params);
+//   console.log('======================');
+//   Inventory.findAll({
+//     where: {
+//       username: req.params.username
+//     },
+//     attributes: [
+//       'id',
+//       'user_id',
+//       'card_name',
+//       'img_uri'
+//     ],
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     ]
+//   })
+//     .then(dbPostData => {
+//       const cards = dbPostData.map(cards => cards.get({ plain: true }));
+//       // console.log(cards);
+//       if(req.session.user_id){
+//         console.log(res);
+//         res.render(`user-inventory`, { cards, loggedIn: true });
+//       }
+//       else{
+//         res.render(`user-inventory`, { cards });
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 
 
