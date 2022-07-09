@@ -1,16 +1,23 @@
-{{!-- {{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
+ <h2>Add a Card to Your Inventory</h2>
+  <form class="card-search-form">
+    <div>
+      <label for="card-name">Card Name</label>
+      <input type="text" id="card-name" name="card-name" />
+    </div>
+    <button type="submit" class="btn">Search</button>
+  </form>
 </section>
-{{/if}} --}}
+
+{{#if cardArr.length}}
+<div class="card-search-container">
+    <ul>
+      <li>butts</li>
+      {{#each cardArr}}
+      <li>{{cardArr.name}}</li>
+      {{/each}}
+    </ul>
+</div>
+{{/if}}
 
 {{#if cards.length}}
 <section class="user-collection">
@@ -23,13 +30,12 @@
       {{card_name}}
     </div>
     {{/each}}
-  </div>
-  
+  </div> 
 </section>
 {{/if}}
 
 
 
 
-{{!-- <script src="/javascript/search-card.js"></script> --}}
+<script src="/javascript/search-card.js"></script>
 <script src="/javascript/remove-card.js"></script>

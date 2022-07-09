@@ -60,6 +60,7 @@ router.get('/user/:id', (req, res) => {
       const cards = dbPostData.map(cards => cards.get({ plain: true }));
       // console.log(cards);
       if(req.session.user_id){
+        console.log(res);
         res.render(`user-inventory`, { cards, loggedIn: true });
       }
       else{
