@@ -183,6 +183,9 @@ footer {
   grid-auto-rows: minmax(100px, auto);
 }
 
+.card-container {
+  text-align: center;
+}
 .card-container > img {
   width: 100%;
 }
@@ -195,4 +198,11 @@ footer {
 }
 .post-title{
   font-size: 22px;
+}
+.add-card-btn{
+  width: 100%;
+  background-color: rgb(17, 129, 17);
+}
+.add-card-btn:hover {
+  background-color: rgb(49, 167, 49);
 }

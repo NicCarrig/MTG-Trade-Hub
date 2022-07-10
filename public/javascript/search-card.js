@@ -122,7 +122,7 @@ function displaySearchResults(searchData){
     cardNameEl.setAttribute("data-name", searchData.data[i].name);
     singleCardContainerEl.appendChild(cardNameEl);
 
-    //<button type="button" class="remove-card-btn" data-name="{{card_name}}">Remove card</button>
+    //<button type="button" class="add-card-btn" data-name="{{card_name}}">Remove card</button>
     let addCardBtn = document.createElement('button');
     addCardBtn.setAttribute("type", "button");
     addCardBtn.setAttribute("class", "add-card-btn");
