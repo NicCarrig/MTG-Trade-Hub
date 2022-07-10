@@ -193,3 +193,6 @@ footer {
 .remove-card-btn:hover {
   background-color: #ff643d;
 }
+.post-title{
+  font-size: 22px;
+}
