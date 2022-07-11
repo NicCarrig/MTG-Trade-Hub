@@ -17,6 +17,7 @@ async function searchBtnHandler(event){
           }
           else if (searchData.data.length > 1){
             console.log(searchData.data.length);
+            // console.log(searchData);
             displaySearchResults(searchData, searchName);
           }
           else{
@@ -43,6 +44,7 @@ async function addCardBtnHandler(event){
 
   if(response.ok){
     response.json().then(searchData => {
+      // console.log(searchData);
       addCardToInv(searchData);
     })
   }
@@ -56,11 +58,18 @@ async function addCardBtnHandler(event){
 
 function addCardToInv(searchData){
 
-  console.log(searchData);
+  // console.log(searchData);
 
   let card_name = searchData.data[0].name;
-  let img_uri = searchData.data[0].image_uris.normal;
   let scryfall_id = searchData.data[0].id;
+  //img data need to check if the card is double-faced before adding
+  let img_uri;
+  if(searchData.data[0].card_faces){
+    img_uri = searchData.data[0].card_faces[0].image_uris.normal;
+  }
+  else{
+    img_uri = searchData.data[0].image_uris.normal;
+  }
   
   const addCard = fetch('/api/inventory', {
     method: 'POST',
@@ -91,6 +100,8 @@ function displaySearchResults(searchData){
   //needs to display the array of results with separate html elements for each object in the array
   //should add an event listener to the main container for the search results
   //event listener should call another function to pick of the data elements and pass them to the addCardToInv() function
+  console.log(searchData);
+
   const cardSearchContainerEl = document.getElementById('card-search-container');
 
   let searchTitleEl = document.createElement('h2');
@@ -109,9 +120,17 @@ function displaySearchResults(searchData){
     singleCardContainerEl.setAttribute("class", "card-container");
     cardWrapperEl.appendChild(singleCardContainerEl);
 
+    //check for double face card
+    let img_uri;
+   if(searchData.data[i].card_faces){
+      img_uri = searchData.data[i].card_faces[0].image_uris.normal;
+    }
+    else{
+      img_uri = searchData.data[i].image_uris.normal;
+  }
     //<img src="{{img_uri}}" alt="image of {{card_name}}">
     let cardImg = document.createElement('img');
-    cardImg.setAttribute("src", searchData.data[i].image_uris.normal);
+    cardImg.setAttribute("src", img_uri);
     cardImg.setAttribute("alt", `image of ${searchData.data[i].name}`);
     cardImg.setAttribute("data-name", searchData.data[i].name);
     singleCardContainerEl.appendChild(cardImg);
