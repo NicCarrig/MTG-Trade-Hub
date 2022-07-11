@@ -27,7 +27,8 @@ async function searchBtnHandler(event){
     }
     else{
       console.log('response not ok');
-      alert(response.statusText);
+      // alert(response.statusText);
+      alert(`No cards found for "${searchName}"`)
     }
   }
   
